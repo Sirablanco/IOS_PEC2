@@ -64,5 +64,19 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     
     // BEGIN-UOC-1
     
+    @IBAction func firstFieldChanged(_ sender: UITextField) {
+        print("pasar para el siguiente")
+        secondField.becomeFirstResponder() // control activo
+    }
+    
+    @IBAction func secondFieldChanged(_ sender: UITextField) {
+        thirdField.becomeFirstResponder()
+    }
+    @IBAction func thirtFieldChanged(_ sender: UITextField) {
+        fourthField.becomeFirstResponder()
+    }
+    @IBAction func fourthFieldChanged(_ sender: UITextField) {
+        doAuthentication()
+    }
     // END-UOC-1
 }

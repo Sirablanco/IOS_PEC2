@@ -279,7 +279,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                                 <connections>
-                                    <outlet property="delegate" destination="nzK-9J-BMJ" id="ETu-Ex-ivX"/>
+                                    <outlet property="delegate" destination="nzK-9J-BMJ" id="NCH-qM-obz"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEU-NY-got">
@@ -298,6 +298,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="dVS-mz-Qzl" firstAttribute="top" secondItem="3jE-F4-u9B" secondAttribute="bottom" constant="25" id="25L-uG-w44"/>
                             <constraint firstItem="2kf-W2-tph" firstAttribute="trailing" secondItem="4N8-2t-QIs" secondAttribute="trailingMargin" id="9zF-S8-zfF"/>
@@ -317,6 +318,9 @@
                             <constraint firstItem="g2z-cn-def" firstAttribute="top" secondItem="BEU-NY-got" secondAttribute="bottom" constant="20" id="odA-CB-nG8"/>
                             <constraint firstItem="lTG-iq-Jtu" firstAttribute="top" secondItem="yTS-50-cmT" secondAttribute="bottom" constant="52" id="rFU-9X-OPk"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="URf-06-vHG" appends="YES" id="TIT-1z-X14"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="oZv-l1-1hM"/>
                     <connections>
@@ -327,6 +331,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XVP-Mu-deH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="URf-06-vHG">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="nzK-9J-BMJ" id="bRt-So-i2b"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2287.1999999999998" y="-1153.6731634182909"/>
         </scene>
@@ -426,6 +435,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                 <connections>
+                                    <action selector="secondFieldChanged:" destination="qWi-qB-46D" eventType="editingChanged" id="T8F-Li-Z55"/>
                                     <outlet property="delegate" destination="qWi-qB-46D" id="fLS-6l-8RI"/>
                                 </connections>
                             </textField>
@@ -438,6 +448,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                 <connections>
+                                    <action selector="thirtFieldChanged:" destination="qWi-qB-46D" eventType="editingChanged" id="Xsh-rv-1rU"/>
                                     <outlet property="delegate" destination="qWi-qB-46D" id="O5P-Sn-YHI"/>
                                 </connections>
                             </textField>
@@ -450,6 +461,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                 <connections>
+                                    <action selector="fourthFieldChanged:" destination="qWi-qB-46D" eventType="editingChanged" id="Ngv-49-EP0"/>
                                     <outlet property="delegate" destination="qWi-qB-46D" id="Pte-a5-xQH"/>
                                 </connections>
                             </textField>
@@ -482,7 +494,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Nb-Hl-lHc">
-                                <rect key="frame" x="112.5" y="170" width="30" height="30"/>
+                                <rect key="frame" x="112" y="170" width="30" height="30"/>
                                 <accessibility key="accessibilityConfiguration" identifier="First"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="wkB-pB-FRb"/>
@@ -491,6 +503,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
                                 <connections>
+                                    <action selector="firstFieldChanged:" destination="qWi-qB-46D" eventType="editingChanged" id="YHs-bx-jX8"/>
                                     <outlet property="delegate" destination="qWi-qB-46D" id="4qd-gr-mbB"/>
                                 </connections>
                             </textField>

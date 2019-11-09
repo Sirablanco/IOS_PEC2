@@ -7,12 +7,17 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var welcomeLabel: UILabel!
+    // apartado 1: que se cierre teclado al pulsar en cualquier otro sitio
+    @IBAction func backgroundTapped(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
     
-    @IBAction func loginTapped(_ sender: UIButton) {
+    @IBAction func loginTapped(_ sender: Any) { // UIButton
+        print("Entra aqui")
         if let username = usernameField.text, let password = passwordField.text {
             let canLogin = Services.validate(username: username, password: password)
             
@@ -72,6 +77,21 @@ class LoginViewController: UIViewController {
     }
     
     // BEGIN-UOC-1
+    // para pasar al campo de password desde "siguiente" del teclado
+    // y lanzar comporbación desde "aceptar" del teclado
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case usernameField:
+            passwordField.becomeFirstResponder() // control activo
+        
+        case passwordField:
+            loginTapped(textField)
+            textField.resignFirstResponder() // ultimo campo, control no activo
+        default:
+            textField.resignFirstResponder() // control no activo
+        }
+        return false
+    }
     
     // END-UOC-1
 }
