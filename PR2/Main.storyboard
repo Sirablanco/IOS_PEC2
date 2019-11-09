@@ -494,7 +494,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Nb-Hl-lHc">
-                                <rect key="frame" x="112" y="170" width="30" height="30"/>
+                                <rect key="frame" x="112.5" y="170" width="30" height="30"/>
                                 <accessibility key="accessibilityConfiguration" identifier="First"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="wkB-pB-FRb"/>
@@ -536,9 +536,13 @@
                     </view>
                     <connections>
                         <outlet property="firstField" destination="0Nb-Hl-lHc" id="LwZ-9q-KZZ"/>
+                        <outlet property="firstLabel" destination="nER-Uv-rTV" id="hvN-pm-y08"/>
                         <outlet property="fourthField" destination="P5J-xy-r6k" id="eam-M2-mPf"/>
+                        <outlet property="fourthLabel" destination="cLK-qn-WUx" id="dWM-Oi-qxj"/>
                         <outlet property="secondField" destination="1kT-Bg-b3C" id="dg4-9H-T8Z"/>
+                        <outlet property="secondLabel" destination="0JQ-OG-vI0" id="EpR-kJ-nKn"/>
                         <outlet property="thirdField" destination="Eqh-Oh-sDc" id="Daj-5j-HGK"/>
+                        <outlet property="thirdLabel" destination="lOS-qe-FXh" id="QtL-tx-rI8"/>
                         <segue destination="lnl-au-HBQ" kind="show" identifier="SegueToMainNavigation" id="wWO-IB-d6h"/>
                     </connections>
                 </viewController>

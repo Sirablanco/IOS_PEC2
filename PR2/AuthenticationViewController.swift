@@ -13,6 +13,10 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var thirdField: UITextField!
     @IBOutlet weak var fourthField: UITextField!
     
+    @IBOutlet weak var firstLabel: UILabel!
+    @IBOutlet weak var secondLabel: UILabel!
+    @IBOutlet weak var fourthLabel: UILabel!
+    @IBOutlet weak var thirdLabel: UILabel!
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // We first check that the user is only entering numeric characters
         let numericSet = CharacterSet.decimalDigits
@@ -53,7 +57,11 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         
         if validCode {
             // BEGIN-UOC-2
-            performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
+            print("antes")
+            
+            animateTransitions()
+            //performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
+            print("despues")
             // END-UOC-2
         } else {
             let errorMessage = "Sorry, the entered code is not valid"
@@ -61,6 +69,46 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
             Utils.show (Message: errorMessage, WithTitle: errorTitle, InViewController: self)
         }
     }
+    // codigo para apartado 2
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)    // Set the label's initial alpha
+        firstField.alpha = 1
+        secondField.alpha = 1
+        thirdField.alpha = 1
+        fourthField.alpha = 1
+        
+        firstLabel.alpha=1
+        secondLabel.alpha=1
+        thirdLabel.alpha=1
+        fourthLabel.alpha=1
+    }
+    func animateTransitions() {
+        UIView.animate(
+            withDuration: 0.5,
+            delay: 0.5,
+            options: [],
+            animations: {
+                self.firstField.alpha = 0
+                self.secondField.alpha = 0
+                self.thirdField.alpha = 0
+                self.fourthField.alpha = 0
+                
+                self.firstLabel.alpha=0
+                self.secondLabel.alpha=0
+                self.thirdLabel.alpha=0
+                self.fourthLabel.alpha=0
+            },
+            completion: { _ in
+                print("se ha terminado la primera animaciion")
+                self.performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
+
+                
+            }
+        )
+        
+    }
+    
+    // fin código para apartado 2
     
     // BEGIN-UOC-1
     
