@@ -17,6 +17,12 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet weak var fourthLabel: UILabel!
     @IBOutlet weak var thirdLabel: UILabel!
+    
+    @IBOutlet weak var pleaseLabel: UILabel!
+    @IBOutlet weak var backButton: UIButton!
+    
+    @IBOutlet weak var nextButton: UIButton!
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // We first check that the user is only entering numeric characters
         let numericSet = CharacterSet.decimalDigits
@@ -57,11 +63,8 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         
         if validCode {
             // BEGIN-UOC-2
-            print("antes")
-            
             animateTransitions()
             //performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
-            print("despues")
             // END-UOC-2
         } else {
             let errorMessage = "Sorry, the entered code is not valid"
@@ -69,7 +72,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
             Utils.show (Message: errorMessage, WithTitle: errorTitle, InViewController: self)
         }
     }
-    // codigo para apartado 2
+    // Código para apartado 2
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)    // Set the label's initial alpha
         firstField.alpha = 1
@@ -83,6 +86,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         fourthLabel.alpha=1
     }
     func animateTransitions() {
+        let labelStackView = UIStackView(arrangedSubviews: [self.firstLabel,self.secondLabel,self.thirdLabel,self.fourthLabel])
         UIView.animate(
             withDuration: 0.5,
             delay: 0.5,
@@ -93,16 +97,35 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                 self.thirdField.alpha = 0
                 self.fourthField.alpha = 0
                 
-                self.firstLabel.alpha=0
-                self.secondLabel.alpha=0
-                self.thirdLabel.alpha=0
-                self.fourthLabel.alpha=0
+//                self.firstLabel.alpha=0
+//                self.secondLabel.alpha=0
+//                self.thirdLabel.alpha=0
+//                self.fourthLabel.alpha=0
+                
+                labelStackView.alpha = 0
+                
             },
             completion: { _ in
-                print("se ha terminado la primera animaciion")
-                self.performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
-
-                
+                // ini segundo grupo de animations
+                UIView.animate(
+                    withDuration: 1,
+                    delay: 1,
+                    options: [],
+                    animations: {
+                        self.pleaseLabel.transform = self.pleaseLabel.transform.translatedBy(x: 0, y: -250)
+                        self.nextButton.transform = self.nextButton.transform.translatedBy(x: +200, y:0)
+                        self.backButton.transform = self.backButton.transform.translatedBy(x: -200, y: 0)
+                        
+                        self.pleaseLabel.alpha = 0
+                        self.nextButton.alpha = 0
+                        self.backButton.alpha = 0
+                        
+                        
+                    },
+                    completion: { _ in
+                        self.performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
+                    }
+                )
             }
         )
         

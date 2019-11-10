@@ -535,10 +535,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="Tvn-vk-80J" id="TlJ-1b-sI8"/>
                         <outlet property="firstField" destination="0Nb-Hl-lHc" id="LwZ-9q-KZZ"/>
                         <outlet property="firstLabel" destination="nER-Uv-rTV" id="hvN-pm-y08"/>
                         <outlet property="fourthField" destination="P5J-xy-r6k" id="eam-M2-mPf"/>
                         <outlet property="fourthLabel" destination="cLK-qn-WUx" id="dWM-Oi-qxj"/>
+                        <outlet property="nextButton" destination="LLR-OW-tID" id="cIX-aI-l44"/>
+                        <outlet property="pleaseLabel" destination="EN2-sH-t3v" id="Ivb-Bm-izm"/>
                         <outlet property="secondField" destination="1kT-Bg-b3C" id="dg4-9H-T8Z"/>
                         <outlet property="secondLabel" destination="0JQ-OG-vI0" id="EpR-kJ-nKn"/>
                         <outlet property="thirdField" destination="Eqh-Oh-sDc" id="Daj-5j-HGK"/>
