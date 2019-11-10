@@ -123,6 +123,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                         
                     },
                     completion: { _ in
+                        // End of animation
                         self.performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
                     }
                 )
