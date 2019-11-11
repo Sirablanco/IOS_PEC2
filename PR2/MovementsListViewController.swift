@@ -19,7 +19,7 @@ class MovementsListViewController: UITableViewController {
         let prueba = allItems[0].date
         
         //
-        print("prueba antes")
+        print("prueba antes...")
         print(prueba)
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss +0000"
