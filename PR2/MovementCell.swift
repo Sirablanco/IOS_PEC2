@@ -10,5 +10,8 @@ import UIKit
 class MovementCell: UITableViewCell {
 // BEGIN-UOC-4
 
-// END-UOC-4
+    @IBOutlet weak var Description: UILabel!
+    @IBOutlet weak var Date: UILabel!
+    @IBOutlet weak var Amount: UILabel!
+    // END-UOC-4
 }
