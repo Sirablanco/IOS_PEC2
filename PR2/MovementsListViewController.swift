@@ -15,6 +15,24 @@ class MovementsListViewController: UITableViewController {
         allItems = Services.getMovements() // Inicializamos
         print(allItems.count)
         print(allItems[0].movementDescription)
+        print(allItems[0].date)
+        let prueba = allItems[0].date
+        
+        //
+        print("prueba antes")
+        print(prueba)
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss +0000"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "yyyy-MM-dd"
+        print ("prueba")
+        if let date = dateFormatterGet.date(from: "\(prueba)") {
+            print(dateFormatterPrint.string(from: date))
+        } else {
+            print("There was an error decoding the string")
+        }
+        //
     
         tableView.rowHeight = 75
     }
