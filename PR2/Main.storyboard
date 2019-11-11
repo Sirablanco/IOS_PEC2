@@ -108,37 +108,54 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovementCell" rowHeight="75" id="nMk-1M-k5e">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MovementCell" rowHeight="75" id="nMk-1M-k5e" customClass="MovementCell" customModule="PR2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nMk-1M-k5e" id="HQ2-NA-ViA">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="74.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHG-QC-pHS" userLabel="Description">
-                                            <rect key="frame" x="8" y="8" width="149" height="17"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHG-QC-pHS" userLabel="Description">
+                                            <rect key="frame" x="8" y="8" width="325" height="17"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-zh-2Lj" userLabel="Date">
-                                            <rect key="frame" x="8" y="45" width="36" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNI-zh-2Lj" userLabel="Date">
+                                            <rect key="frame" x="8" y="45" width="120" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="u3i-xw-yUw"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.40000000000000002" green="0.40000000000000002" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5,000.20 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISx-Qu-Ipo" userLabel="Amount">
-                                            <rect key="frame" x="250" y="45" width="84" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5,000.20 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISx-Qu-Ipo" userLabel="Amount">
+                                            <rect key="frame" x="250" y="45.5" width="84" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="84" id="Ium-cP-X1x"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CNI-zh-2Lj" firstAttribute="leading" secondItem="gHG-QC-pHS" secondAttribute="leading" id="0yE-EU-GHo"/>
+                                        <constraint firstAttribute="bottom" secondItem="CNI-zh-2Lj" secondAttribute="bottom" constant="8.5" id="DJr-jr-OYr"/>
+                                        <constraint firstItem="gHG-QC-pHS" firstAttribute="top" secondItem="HQ2-NA-ViA" secondAttribute="top" constant="8" id="Lom-yO-OSj"/>
+                                        <constraint firstItem="gHG-QC-pHS" firstAttribute="leading" secondItem="HQ2-NA-ViA" secondAttribute="leading" constant="8" id="Qdd-zV-Q5t"/>
+                                        <constraint firstAttribute="trailing" secondItem="gHG-QC-pHS" secondAttribute="trailing" constant="8" id="hl9-Rk-rII"/>
+                                        <constraint firstAttribute="bottom" secondItem="ISx-Qu-Ipo" secondAttribute="bottom" constant="8" id="jFV-iO-76c"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="ISx-Qu-Ipo" secondAttribute="trailing" constant="41" id="ile-jc-MgM"/>
+                                </constraints>
                                 <connections>
+                                    <outlet property="Amount" destination="ISx-Qu-Ipo" id="tW3-5n-ovz"/>
+                                    <outlet property="Date" destination="CNI-zh-2Lj" id="Z2m-ss-0eW"/>
+                                    <outlet property="Description" destination="gHG-QC-pHS" id="Atp-2G-4Bb"/>
                                     <segue destination="qNi-wx-B3h" kind="show" identifier="SegueToMovementDetail" id="axa-vJ-SkQ"/>
                                 </connections>
                             </tableViewCell>
