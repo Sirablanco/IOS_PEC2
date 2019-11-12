@@ -16,8 +16,11 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    @IBAction func loginTapped(_ sender: Any) { // UIButton
-        print("Entra aqui")
+    @IBAction func loginTapped(_ sender: UIButton) {
+        loginTappedSend() // Creo una función nueva para poder usarla
+    }
+    
+    func loginTappedSend(){
         if let username = usernameField.text, let password = passwordField.text {
             let canLogin = Services.validate(username: username, password: password)
             
@@ -30,6 +33,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
                 Utils.show(Message: errorMessage, WithTitle: errorTitle, InViewController: self)
             }
         }
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -78,14 +82,14 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     // BEGIN-UOC-1
     // para pasar al campo de password desde "siguiente" del teclado
-    // y lanzar comporbación desde "aceptar" del teclado
+    // y lanzar comprobación desde "aceptar" del teclado
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case usernameField:
             passwordField.becomeFirstResponder() // control activo
         
         case passwordField:
-            loginTapped(textField)
+            loginTappedSend()
             textField.resignFirstResponder() // ultimo campo, control no activo
         default:
             textField.resignFirstResponder() // control no activo

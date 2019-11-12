@@ -6,45 +6,70 @@
 //
 
 import UIKit
+import Foundation
+
 
 class MovementsListViewController: UITableViewController {
     // BEGIN-UOC-3
     var allItems = [Movement]() // datos de los movimientos
+    let formatter = NumberFormatter()
+
+    
+    func formatos(){
+        formatter.maximumFractionDigits = 2
+        formatter.minimumFractionDigits = 2
+        formatter.decimalSeparator = ","
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         allItems = Services.getMovements() // Inicializamos
-        print(allItems.count)
-        print(allItems[0].movementDescription)
-        print(allItems[0].date)
-        let prueba = allItems[0].date
+        tableView.rowHeight = 75
         
+        formatos() // Para poner los decimales en formato correcto
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //
-        print("prueba antes...")
-        print(prueba)
+        
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd HH:mm:ss +0000"
         
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "yyyy-MM-dd"
-        print ("prueba")
-        if let date = dateFormatterGet.date(from: "\(prueba)") {
-            print(dateFormatterPrint.string(from: date))
-        } else {
-            print("There was an error decoding the string")
-        }
-        //
-    
-        tableView.rowHeight = 75
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
+        //
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovementCell",
                                                  for: indexPath) as! MovementCell
         let item = allItems[indexPath.row]
+        let amount = item.amount
+        let date = item.date
+        
+        var amountString = ""
+        if let formattedString = formatter.string(for: amount) {
+            amountString = formattedString
+        }
+        
+        var dateString = ""
+        if let date = dateFormatterGet.date(from: "\(date)") {
+            dateString = dateFormatterPrint.string(from: date)
+        }
+        
         cell.Description.text = item.movementDescription
-        cell.Date.text = "\(item.date)"
-        cell.Amount.text = "\(item.amount) €"
+        cell.Date.text = dateString
+        cell.Amount.text = amountString+" €"
+        
+        if (amount<0){
+            cell.Amount.textColor = UIColor.red
+        }else{
+            cell.Amount.textColor = UIColor.black
+        }
+        
+        
+
+        
         
         return cell
     }
