@@ -20,8 +20,11 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var pleaseLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
-    
     @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var backConstraintLeading: NSLayoutConstraint!
+    @IBOutlet weak var nextConstrainttrailingMargin: NSLayoutConstraint!
+    @IBOutlet weak var pleaseConstraintPlease: NSLayoutConstraint!
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // We first check that the user is only entering numeric characters
@@ -84,9 +87,23 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         secondLabel.alpha=1
         thirdLabel.alpha=1
         fourthLabel.alpha=1
+        
+        //let subir = self.pleaseConstraintPlease.constant
+        /*let screenWidth = self.view.frame.width
+        let screenHeigth = self.view.frame.height
+        
+        self.nextConstrainttrailingMargin.constant -= screenWidth
+        self.backConstraintLeading.constant += screenWidth
+        self.pleaseConstraintPlease.constant += screenHeigth */
+        
+        print("valores iniciales:")
+        print (self.nextConstrainttrailingMargin.constant)
+        print(self.backConstraintLeading.constant)
+        print(self.pleaseConstraintPlease.constant)
+        
     }
     func animateTransitions() {
-        let labelStackView = UIStackView(arrangedSubviews: [self.firstLabel,self.secondLabel,self.thirdLabel,self.fourthLabel])
+        //let labelStackView = UIStackView(arrangedSubviews: [self.firstLabel,self.secondLabel,self.thirdLabel,self.fourthLabel])
         UIView.animate(
             withDuration: 0.5,
             delay: 0.5,
@@ -97,12 +114,13 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                 self.thirdField.alpha = 0
                 self.fourthField.alpha = 0
                 
-//                self.firstLabel.alpha=0
-//                self.secondLabel.alpha=0
-//                self.thirdLabel.alpha=0
-//                self.fourthLabel.alpha=0
+                self.firstLabel.alpha=0
+                self.secondLabel.alpha=0
+                self.thirdLabel.alpha=0
+                self.fourthLabel.alpha=0
                 
-                labelStackView.alpha = 0
+               // labelStackView.alpha = 0
+                
                 
             },
             completion: { _ in
@@ -112,6 +130,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                     delay: 1,
                     options: [],
                     animations: {
+                        /*
                         self.pleaseLabel.transform = self.pleaseLabel.transform.translatedBy(x: 0, y: -250)
                         self.nextButton.transform = self.nextButton.transform.translatedBy(x: +200, y:0)
                         self.backButton.transform = self.backButton.transform.translatedBy(x: -200, y: 0)
@@ -119,12 +138,34 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                         self.pleaseLabel.alpha = 0
                         self.nextButton.alpha = 0
                         self.backButton.alpha = 0
+                       */
+                        print("valores de las constraints:")
+                        print(self.backConstraintLeading.constant)
+                        print(self.nextConstrainttrailingMargin.constant)
+                        print(self.pleaseConstraintPlease.constant)
+                        
+                        //let subir = self.pleaseConstraintPlease.constant
+                        let screenWidth = self.view.frame.width
+                        let screenHeigth = self.view.frame.height
+                        
+                        self.nextConstrainttrailingMargin.constant += screenWidth
+                        self.backConstraintLeading.constant -= screenWidth
+                        self.pleaseConstraintPlease.constant -= screenHeigth
                         
                         
                     },
                     completion: { _ in
+                        print("se han finalizado todas, las vuelvo a su sitio")
+                        
                         // End of animation
-                        self.performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
+                       //self.performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
+                        /*let screenWidth = self.view.frame.width
+                        let screenHeigth = self.view.frame.height
+                        self.nextConstrainttrailingMargin.constant -= screenWidth
+                        self.backConstraintLeading.constant += screenWidth
+                        self.pleaseConstraintPlease.constant += screenHeigth
+                        */
+                        print ("se han recuperado")
                     }
                 )
             }

@@ -17,7 +17,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBAction func loginTapped(_ sender: UIButton) {
-        loginTappedSend() // Creo una función nueva para poder usarla
+        loginTappedSend() // Creo una función sin parámetro UIButton
     }
     
     func loginTappedSend(){

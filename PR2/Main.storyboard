@@ -553,11 +553,14 @@
                     </view>
                     <connections>
                         <outlet property="backButton" destination="Tvn-vk-80J" id="TlJ-1b-sI8"/>
+                        <outlet property="backConstraintLeading" destination="yKN-4m-OHk" id="Bqv-TP-3SW"/>
                         <outlet property="firstField" destination="0Nb-Hl-lHc" id="LwZ-9q-KZZ"/>
                         <outlet property="firstLabel" destination="nER-Uv-rTV" id="hvN-pm-y08"/>
                         <outlet property="fourthField" destination="P5J-xy-r6k" id="eam-M2-mPf"/>
                         <outlet property="fourthLabel" destination="cLK-qn-WUx" id="dWM-Oi-qxj"/>
                         <outlet property="nextButton" destination="LLR-OW-tID" id="cIX-aI-l44"/>
+                        <outlet property="nextConstrainttrailingMargin" destination="fiI-Il-aZV" id="eOB-Ei-NhI"/>
+                        <outlet property="pleaseConstraintPlease" destination="Goa-6D-xts" id="9kW-tB-6u6"/>
                         <outlet property="pleaseLabel" destination="EN2-sH-t3v" id="Ivb-Bm-izm"/>
                         <outlet property="secondField" destination="1kT-Bg-b3C" id="dg4-9H-T8Z"/>
                         <outlet property="secondLabel" destination="0JQ-OG-vI0" id="EpR-kJ-nKn"/>
@@ -568,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u06-1N-68X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1444" y="-1154.5727136431785"/>
+            <point key="canvasLocation" x="-1214" y="-1146"/>
         </scene>
         <!--Movement Detail View Controller-->
         <scene sceneID="OYn-Yu-X1q">
