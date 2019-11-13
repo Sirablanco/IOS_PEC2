@@ -25,6 +25,8 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var backConstraintLeading: NSLayoutConstraint!
     @IBOutlet weak var nextConstrainttrailingMargin: NSLayoutConstraint!
     @IBOutlet weak var pleaseConstraintPlease: NSLayoutConstraint!
+    @IBOutlet weak var firstFieldTopConstraint: NSLayoutConstraint!
+
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // We first check that the user is only entering numeric characters
@@ -103,69 +105,52 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         
     }
     func animateTransitions() {
+        // Primero definiemos los valores de las constraints y llamamos autoLayout
+        /*
+        
+        */
+        
+        self.view.layoutIfNeeded()
+        print("valor de la constante:")
+        print(self.pleaseConstraintPlease.constant)
+     
+        
         //let labelStackView = UIStackView(arrangedSubviews: [self.firstLabel,self.secondLabel,self.thirdLabel,self.fourthLabel])
         UIView.animate(
-            withDuration: 0.5,
-            delay: 0.5,
+            withDuration: 3, // cambiar a 0.5
+            delay: 0,
             options: [],
             animations: {
                 self.firstField.alpha = 0
                 self.secondField.alpha = 0
                 self.thirdField.alpha = 0
                 self.fourthField.alpha = 0
-                
                 self.firstLabel.alpha=0
                 self.secondLabel.alpha=0
                 self.thirdLabel.alpha=0
                 self.fourthLabel.alpha=0
-                
-               // labelStackView.alpha = 0
-                
-                
             },
             completion: { _ in
                 // ini segundo grupo de animations
                 UIView.animate(
-                    withDuration: 1,
-                    delay: 1,
+                    withDuration: 3, // cambiar a 1
+                    delay: 0,
                     options: [],
                     animations: {
-                        /*
-                        self.pleaseLabel.transform = self.pleaseLabel.transform.translatedBy(x: 0, y: -250)
-                        self.nextButton.transform = self.nextButton.transform.translatedBy(x: +200, y:0)
-                        self.backButton.transform = self.backButton.transform.translatedBy(x: -200, y: 0)
-                        
-                        self.pleaseLabel.alpha = 0
-                        self.nextButton.alpha = 0
-                        self.backButton.alpha = 0
-                       */
-                        print("valores de las constraints:")
-                        print(self.backConstraintLeading.constant)
-                        print(self.nextConstrainttrailingMargin.constant)
-                        print(self.pleaseConstraintPlease.constant)
-                        
-                        //let subir = self.pleaseConstraintPlease.constant
-                        let screenWidth = self.view.frame.width
                         let screenHeigth = self.view.frame.height
+                        self.pleaseConstraintPlease.constant = -screenHeigth
+                        //self.firstFieldTopConstraint.constant = -screenHeigth
                         
-                        self.nextConstrainttrailingMargin.constant += screenWidth
-                        self.backConstraintLeading.constant -= screenWidth
-                        self.pleaseConstraintPlease.constant -= screenHeigth
-                        
-                        
+                        let screenWidth = self.view.frame.width
+                        self.nextConstrainttrailingMargin.constant = -screenWidth
+                        self.backConstraintLeading.constant = +screenWidth
+                        self.view.layoutIfNeeded()
                     },
                     completion: { _ in
-                        print("se han finalizado todas, las vuelvo a su sitio")
-                        
+                        print ("terminado")
                         // End of animation
-                       //self.performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
-                        /*let screenWidth = self.view.frame.width
-                        let screenHeigth = self.view.frame.height
-                        self.nextConstrainttrailingMargin.constant -= screenWidth
-                        self.backConstraintLeading.constant += screenWidth
-                        self.pleaseConstraintPlease.constant += screenHeigth
-                        */
-                        print ("se han recuperado")
+                        //self.performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
+                        
                     }
                 )
             }
