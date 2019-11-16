@@ -96,7 +96,6 @@ class MovementDetailViewController: UIViewController {
         labelView.text = "Rejected"
         labelView.font = UIFont.systemFont(ofSize: 18)
         labelView.textColor = .red
-        // activa autolayout
         labelView.translatesAutoresizingMaskIntoConstraints = false
         labelView.textAlignment = .center
         return labelView
@@ -111,19 +110,17 @@ class MovementDetailViewController: UIViewController {
         return button
     }()
     
-   
-    
     func preparaReject(){
         if movement.rejected {
             view.addSubview(rejectLabelView)
-            // layout
+            // constraints
             rejectLabelView.topAnchor.constraint(equalTo: acountLabel.bottomAnchor, constant: 20).isActive = true
             rejectLabelView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             rejectLabelView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             rejectLabelView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         }else{
             view.addSubview(rejectButton)
-            // layout
+            // constraints
             rejectButton.topAnchor.constraint(equalTo: acountLabel.bottomAnchor, constant: 10).isActive = true
             rejectButton.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             rejectButton.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true

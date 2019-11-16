@@ -44,38 +44,37 @@ class MovementsListViewController: UITableViewController {
  
         if (indexPath.row < allItems.count) {  // poner filteredItems.count
          */
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MovementCell",
-                                                     for: indexPath) as! MovementCell
-            //let item = allItems[indexPath.row]
-            let item = filteredItems[indexPath.row]
-            let amount = item.amount
-            let date = item.date
-            
-            var amountString = ""
-            if let formattedString = formatter.string(for: amount) {
-                amountString = formattedString
-            }
-            
-            var dateString = ""
-            if let date = dateFormatterGet.date(from: "\(date)") {
-                dateString = dateFormatterPrint.string(from: date)
-            }
-            
-            cell.Description.text = item.movementDescription
-            cell.Date.text = dateString
-            cell.Amount.text = amountString+" €"
-            
-            if (amount<0){
-                cell.Amount.textColor = UIColor.red
-            }else{
-                cell.Amount.textColor = UIColor.black
-            }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MovementCell",for: indexPath) as! MovementCell
+        //let item = allItems[indexPath.row]
+        let item = filteredItems[indexPath.row]
+        let amount = item.amount
+        let date = item.date
         
-            if (item.rejected){
-               cell.backgroundColor = .orange
-            }else{
-               cell.backgroundColor = .white
-            }
+        var amountString = ""
+        if let formattedString = formatter.string(for: amount) {
+            amountString = formattedString
+        }
+            
+        var dateString = ""
+        if let date = dateFormatterGet.date(from: "\(date)") {
+            dateString = dateFormatterPrint.string(from: date)
+        }
+            
+        cell.Description.text = item.movementDescription
+        cell.Date.text = dateString
+        cell.Amount.text = amountString+" €"
+            
+        if (amount<0){
+            cell.Amount.textColor = UIColor.red
+        }else{
+            cell.Amount.textColor = UIColor.black
+        }
+        
+        if (item.rejected){
+           cell.backgroundColor = UIColor(red: 1, green: 0.74, blue: 0.3, alpha: 1)
+        }else{
+           cell.backgroundColor = .white
+        }
         
         //}
         return cell
