@@ -91,16 +91,14 @@ class MovementDetailViewController: UIViewController {
     // END-UOC-8.2
     
     // BEGIN-UOC-9
-    let rejectLabelView : UITextView = {
-        let labelView = UITextView()
-        
+    let rejectLabelView : UILabel = {
+        let labelView = UILabel()
         labelView.text = "Rejected"
         labelView.font = UIFont.systemFont(ofSize: 18)
         labelView.textColor = .red
         // activa autolayout
         labelView.translatesAutoresizingMaskIntoConstraints = false
         labelView.textAlignment = .center
-        labelView.isEditable = false
         return labelView
     }()
     let rejectButton : UIButton = {
