@@ -684,9 +684,15 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="acountLabel" destination="o96-Uj-osr" id="rPB-6h-AnG"/>
                         <outlet property="amount" destination="tIW-iy-cW6" id="go1-sL-yhu"/>
+                        <outlet property="balanceLabel" destination="mfT-5d-M3H" id="YHn-rv-MjR"/>
+                        <outlet property="dateLabel" destination="j8N-we-wQH" id="KLU-JP-KTK"/>
+                        <outlet property="dateValue" destination="Mud-8P-m4l" id="L09-9r-Myh"/>
                         <outlet property="descriptionLabel" destination="EmV-fd-YqX" id="rmK-tZ-vfJ"/>
                         <outlet property="stack1" destination="lAR-7g-P12" id="pin-WQ-1JH"/>
+                        <outlet property="valueLabelvalue" destination="R9R-z6-qMm" id="i8a-Vo-2gE"/>
+                        <outlet property="valueLable" destination="w9i-35-po0" id="OTm-Bl-Urx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mzx-hl-rQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>

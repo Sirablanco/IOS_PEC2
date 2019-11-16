@@ -61,7 +61,7 @@ class MovementsListViewController: UITableViewController {
                 dateString = dateFormatterPrint.string(from: date)
             }
             
-            cell.Description.text = item.category+item.movementDescription //item.movementDescription
+            cell.Description.text = item.movementDescription
             cell.Date.text = dateString
             cell.Amount.text = amountString+" €"
             
@@ -70,6 +70,13 @@ class MovementsListViewController: UITableViewController {
             }else{
                 cell.Amount.textColor = UIColor.black
             }
+        
+            if (item.rejected){
+               cell.backgroundColor = .orange
+            }else{
+               cell.backgroundColor = .white
+            }
+        
         //}
         return cell
     }
