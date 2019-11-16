@@ -159,14 +159,14 @@
                                     <segue destination="qNi-wx-B3h" kind="show" identifier="SegueToMovementDetail" id="axa-vJ-SkQ"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LastMovementCell" id="mRy-ap-RCE">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LastMovementCell" id="mRy-ap-RCE" customClass="LastMovementCell" customModule="PR2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="103" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mRy-ap-RCE" id="ooj-Vw-oM7">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="⇜ End of movements ⇝ " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPu-m3-7kY">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="⇜ End of movements ⇝ " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IPu-m3-7kY" userLabel="⇜ End of movements ⇝">
                                             <rect key="frame" x="85" y="11" width="197" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="ArialUnicodeMS" family="Arial Unicode MS" pointSize="18"/>
@@ -175,6 +175,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="lastMovement" destination="IPu-m3-7kY" id="uWp-nI-UJx"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -189,10 +192,18 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="All"/>
-                                <segment title=""/>
+                                <segment title="Transfers"/>
+                                <segment title="Credit cards"/>
+                                <segment title="Direct debits"/>
                             </segments>
+                            <connections>
+                                <action selector="segmentedControlAction:" destination="AOg-kE-laP" eventType="valueChanged" id="ZTS-A1-TwP"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="segmentedControl" destination="OsD-Dz-Lj1" id="YLb-rB-ftM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PdI-ln-Mnk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -672,6 +683,11 @@
                             <constraint firstItem="EmV-fd-YqX" firstAttribute="top" secondItem="tIW-iy-cW6" secondAttribute="bottom" constant="20" id="z19-ey-gOL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="amount" destination="tIW-iy-cW6" id="go1-sL-yhu"/>
+                        <outlet property="descriptionLabel" destination="EmV-fd-YqX" id="rmK-tZ-vfJ"/>
+                        <outlet property="stack1" destination="lAR-7g-P12" id="pin-WQ-1JH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mzx-hl-rQ2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

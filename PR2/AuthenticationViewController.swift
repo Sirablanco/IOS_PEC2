@@ -117,7 +117,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         
         //let labelStackView = UIStackView(arrangedSubviews: [self.firstLabel,self.secondLabel,self.thirdLabel,self.fourthLabel])
         UIView.animate(
-            withDuration: 3, // cambiar a 0.5
+            withDuration: 0.5, // cambiar a 0.5
             delay: 0,
             options: [],
             animations: {
@@ -133,13 +133,12 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
             completion: { _ in
                 // ini segundo grupo de animations
                 UIView.animate(
-                    withDuration: 3, // cambiar a 1
+                    withDuration: 1,
                     delay: 0,
                     options: [],
                     animations: {
                         let screenHeigth = self.view.frame.height
                         self.pleaseConstraintPlease.constant = -screenHeigth
-                        //self.firstFieldTopConstraint.constant = -screenHeigth
                         
                         let screenWidth = self.view.frame.width
                         self.nextConstrainttrailingMargin.constant = -screenWidth
@@ -147,9 +146,8 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                         self.view.layoutIfNeeded()
                     },
                     completion: { _ in
-                        print ("terminado")
                         // End of animation
-                        //self.performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
+                        self.performSegue (withIdentifier: "SegueToMainNavigation", sender: self)
                         
                     }
                 )

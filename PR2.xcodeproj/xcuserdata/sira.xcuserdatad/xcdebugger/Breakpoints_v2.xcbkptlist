@@ -2,4 +2,99 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PR2/LastMovementCell.swift"
+            timestampString = "595601071.573687"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "LastMovementCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PR2.LastMovementCell.__allocating_init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; PR2.LastMovementCell"
+                  moduleName = "PR2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sira/ProyectosXCODE/PR2_Xcode/PR2/LastMovementCell.swift"
+                  timestampString = "595589221.135744"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PR2.LastMovementCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; PR2.LastMovementCell"
+                  moduleName = "PR2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sira/ProyectosXCODE/PR2_Xcode/PR2/LastMovementCell.swift"
+                  timestampString = "595589221.1388609"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "178">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PR2.LastMovementCell.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;PR2.LastMovementCell&gt;"
+                  moduleName = "PR2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sira/ProyectosXCODE/PR2_Xcode/PR2/LastMovementCell.swift"
+                  timestampString = "595589221.142127"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PR2.LastMovementCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;PR2.LastMovementCell&gt;"
+                  moduleName = "PR2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sira/ProyectosXCODE/PR2_Xcode/PR2/LastMovementCell.swift"
+                  timestampString = "595589221.1455849"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "107">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PR2.LastMovementCell.__deallocating_deinit"
+                  moduleName = "PR2"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sira/ProyectosXCODE/PR2_Xcode/PR2/LastMovementCell.swift"
+                  timestampString = "595589221.148513"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

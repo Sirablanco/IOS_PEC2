@@ -15,3 +15,5 @@ class MovementCell: UITableViewCell {
     @IBOutlet weak var Amount: UILabel!
     // END-UOC-4
 }
+
+
