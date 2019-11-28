@@ -37,13 +37,13 @@ class MovementsListViewController: UITableViewController {
         
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "yyyy-MM-dd"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LastMovementCell") as! LastMovementCell
+        /*let cell = tableView.dequeueReusableCell(withIdentifier:"LastMovementCell",for: indexPath) as! LastMovementCell
+ */
+        //cell.lastMovement.text = "End of movements"
  
-        /*
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LastMovementCell",for: indexPath) as! LastMovementCell
-        cell.lastMovement.text = "End of movements"
+        if (indexPath.row < filteredItems.count) {
  
-        if (indexPath.row < allItems.count) {  // poner filteredItems.count
-         */
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovementCell",for: indexPath) as! MovementCell
         //let item = allItems[indexPath.row]
         let item = filteredItems[indexPath.row]
@@ -76,7 +76,7 @@ class MovementsListViewController: UITableViewController {
            cell.backgroundColor = .white
         }
         
-        //}
+        }
         return cell
     }
     // END-UOC-3
@@ -85,12 +85,12 @@ class MovementsListViewController: UITableViewController {
     // BEGIN-UOC-5
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return filteredItems.count  //+1
+        return filteredItems.count+1
     }
 
     // END-UOC-5
