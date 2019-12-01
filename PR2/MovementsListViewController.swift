@@ -25,8 +25,8 @@ class MovementsListViewController: UITableViewController {
         super.viewDidLoad()
         allItems = Services.getMovements() // Inicializamos
         filteredItems = allItems
+        
         tableView.rowHeight = 75 // revisar esto cuando tenga el otro tipo
-        /*tableView.rowHeight = UITableViewAutomaticDimension tableView.estimatedRowHeight = 75*/
         formatos() // Para poner los decimales en formato correcto
     }
     
@@ -37,47 +37,50 @@ class MovementsListViewController: UITableViewController {
         
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "yyyy-MM-dd"
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LastMovementCell") as! LastMovementCell
-        /*let cell = tableView.dequeueReusableCell(withIdentifier:"LastMovementCell",for: indexPath) as! LastMovementCell
- */
-        //cell.lastMovement.text = "End of movements"
- 
-        if (indexPath.row < filteredItems.count) {
- 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovementCell",for: indexPath) as! MovementCell
-        //let item = allItems[indexPath.row]
-        let item = filteredItems[indexPath.row]
-        let amount = item.amount
-        let date = item.date
         
-        var amountString = ""
-        if let formattedString = formatter.string(for: amount) {
-            amountString = formattedString
-        }
+    
+        if (indexPath.row < (filteredItems.count)) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MovementCell",for: indexPath) as! MovementCell
             
-        var dateString = ""
-        if let date = dateFormatterGet.date(from: "\(date)") {
-            dateString = dateFormatterPrint.string(from: date)
-        }
+            let item = filteredItems[indexPath.row]
+            let amount = item.amount
+            let date = item.date
             
-        cell.Description.text = item.movementDescription
-        cell.Date.text = dateString
-        cell.Amount.text = amountString+" €"
+            var amountString = ""
+            if let formattedString = formatter.string(for: amount) {
+                amountString = formattedString
+            }
             
-        if (amount<0){
-            cell.Amount.textColor = UIColor.red
+            var dateString = ""
+            if let date = dateFormatterGet.date(from: "\(date)") {
+                dateString = dateFormatterPrint.string(from: date)
+            }
+            
+            cell.Description.text = item.category+item.movementDescription
+            cell.Date.text = dateString
+            cell.Amount.text = amountString+" €"
+            
+            if (amount<0){
+                cell.Amount.textColor = UIColor.red
+            }else{
+                cell.Amount.textColor = UIColor.black
+            }
+            
+            if (item.rejected){
+               cell.backgroundColor = UIColor(red: 1, green: 0.74, blue: 0.3, alpha: 1)
+            }else{
+               cell.backgroundColor = .white
+            }
+            return cell
         }else{
-            cell.Amount.textColor = UIColor.black
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LastMovementCell",for: indexPath) as! LastMovementCell
+            
+            return cell
         }
         
-        if (item.rejected){
-           cell.backgroundColor = UIColor(red: 1, green: 0.74, blue: 0.3, alpha: 1)
-        }else{
-           cell.backgroundColor = .white
-        }
-        
-        }
-        return cell
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //print("didSelect cada vez que se toca una celda.  \(indexPath.row)")
     }
     // END-UOC-3
     
@@ -85,12 +88,12 @@ class MovementsListViewController: UITableViewController {
     // BEGIN-UOC-5
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return filteredItems.count+1
+        return filteredItems.count+1 // numero de filas= lista filtrado + 1 para la last cell
     }
 
     // END-UOC-5
@@ -104,13 +107,12 @@ class MovementsListViewController: UITableViewController {
         // Si el segmentControl es != all, filtramos el array con la descripción
         // Finalmente, lanzamos el reload Data
         let valorFiltro = segmentedControl.titleForSegment(at: sender.selectedSegmentIndex) ?? "All"
-        print(valorFiltro)
         
         filteredItems = allItems
         if valorFiltro != "All" {
             filteredItems = allItems.filter { $0.category == valorFiltro }
         }
-
+        
         tableView.reloadData()
         
     }
@@ -125,26 +127,12 @@ class MovementsListViewController: UITableViewController {
             let destination = segue.destination as? MovementDetailViewController,
             let rowIndex = tableView.indexPathForSelectedRow?.row
         {
-            print("entra en el prepare")
             destination.movement = filteredItems[rowIndex]
         }
     }
-    /*
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        print ("se ha despulsado")
-    }
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: IndexPath) {
-        print("he pulsado")
-        print ([indexPath.row])
-        print(filteredItems[indexPath.row])
-    }
- */
-    
-    // END-UOC-8.1
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         tableView.reloadData()
     }
 }

@@ -80,7 +80,6 @@ class MovementDetailViewController: UIViewController {
         formatos()
         preparaReject()
 
-        print("y esto cuando?")
     }
     
     func formatos(){
@@ -128,7 +127,6 @@ class MovementDetailViewController: UIViewController {
             // action del button
     
         }
-        print ("esto si lo hace")
         
     }
     @objc func rejectAction(sender: UIButton!) {

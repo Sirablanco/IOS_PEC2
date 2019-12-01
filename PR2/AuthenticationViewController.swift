@@ -90,31 +90,12 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         thirdLabel.alpha=1
         fourthLabel.alpha=1
         
-        //let subir = self.pleaseConstraintPlease.constant
-        /*let screenWidth = self.view.frame.width
-        let screenHeigth = self.view.frame.height
-        
-        self.nextConstrainttrailingMargin.constant -= screenWidth
-        self.backConstraintLeading.constant += screenWidth
-        self.pleaseConstraintPlease.constant += screenHeigth */
-        
-        print("valores iniciales:")
-        print (self.nextConstrainttrailingMargin.constant)
-        print(self.backConstraintLeading.constant)
-        print(self.pleaseConstraintPlease.constant)
-        
     }
     func animateTransitions() {
-        // Primero definiemos los valores de las constraints y llamamos autoLayout
-        /*
-        
-        */
-        
+        // Primero defino los valores de las constraints y llamamos autoLayout
+    
         self.view.layoutIfNeeded()
-        print("valor de la constante:")
-        print(self.pleaseConstraintPlease.constant)
-     
-        
+        // opción con stackView, finalmente no la uso
         //let labelStackView = UIStackView(arrangedSubviews: [self.firstLabel,self.secondLabel,self.thirdLabel,self.fourthLabel])
         UIView.animate(
             withDuration: 0.5, // cambiar a 0.5
@@ -131,7 +112,7 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
                 self.fourthLabel.alpha=0
             },
             completion: { _ in
-                // ini segundo grupo de animations
+                // inicio segundo grupo de animations
                 UIView.animate(
                     withDuration: 1,
                     delay: 0,
@@ -161,7 +142,6 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     // BEGIN-UOC-1
     
     @IBAction func firstFieldChanged(_ sender: UITextField) {
-        print("pasar para el siguiente")
         secondField.becomeFirstResponder() // control activo
     }
     
